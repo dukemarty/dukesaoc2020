@@ -12,7 +12,7 @@ func main() {
 	fmt.Println("Day 02: Password Philosophy\n=====================")
 
 	checkCases := readPasswords("RawData.txt")
-	fmt.Printf("Read passwords: %q\n", checkCases)
+	fmt.Printf("Read cases for checking: %q\n", checkCases)
 
 	fmt.Println("\nPart 1: Number of valid passwords old variant\n---------------------------------------------")
 	solvePart1(checkCases)
@@ -39,7 +39,7 @@ type CheckCase struct {
 func readPasswords(filename string) []CheckCase {
 	buf, err := ioutil.ReadFile(filename)
 	if err != nil {
-		fmt.Fprint(os.Stderr, "Error occurred when trying to read data from file: ", err)
+		_, _ = fmt.Fprint(os.Stderr, "Error occurred when trying to read data from file: ", err)
 		os.Exit(1)
 	}
 
@@ -50,23 +50,23 @@ func readPasswords(filename string) []CheckCase {
 		// "1-7 l", " zlmsmlxpvvlzv"
 		policyParts := strings.Fields(parts[0])
 		// "1-7", "l" / " zlmsmlxpvvlzv"
-		occBounds := strings.Split(policyParts[0], "-")
+		bounds := strings.Split(policyParts[0], "-")
 		// "1", "7" / "l" // " zlmsmlxpvvlzv"
-		minOcc, err := strconv.Atoi(occBounds[0])
+		lBound, err := strconv.Atoi(bounds[0])
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", minOcc, err)
+			fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", lBound, err)
 			continue
 		}
-		maxOcc, err := strconv.Atoi(occBounds[1])
+		rBound, err := strconv.Atoi(bounds[1])
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", maxOcc, err)
+			fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", rBound, err)
 			continue
 		}
 		entry := CheckCase{
 			Policy: Policy{
 				Letter:     policyParts[1],
-				LeftDigit:  minOcc,
-				RightDigit: maxOcc,
+				LeftDigit:  lBound,
+				RightDigit: rBound,
 			},
 			Password: strings.TrimSpace(parts[1]),
 		}
@@ -100,8 +100,6 @@ func solvePart2(cases []CheckCase) {
 	for _, check := range cases {
 		if isPasswordValidLetterPosition(check.Password, check.Policy) {
 			res += 1
-		} else {
-			fmt.Println(check)
 		}
 	}
 
@@ -109,10 +107,7 @@ func solvePart2(cases []CheckCase) {
 }
 
 func isPasswordValidLetterPosition(password string, policy Policy) bool {
-	fmt.Printf("    Elements: %d , %d , %d\n", password[policy.LeftDigit-1], password[policy.RightDigit-1], policy.Letter[0])
-	fmt.Printf("    Elements: >%s< , >%s< , >%s<\n", string(password[policy.LeftDigit-1]), string(password[policy.RightDigit-1]), string(policy.Letter[0]))
 	firstOcc := password[policy.LeftDigit-1] == policy.Letter[0]
 	secondOcc := password[policy.RightDigit-1] == policy.Letter[0]
-	fmt.Printf("    1st/2nd: %t/%t\n", firstOcc, secondOcc)
 	return firstOcc != secondOcc
 }

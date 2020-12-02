@@ -24,7 +24,7 @@ func main() {
 func readExpenseReport(filename string) []int {
 	buf, err := ioutil.ReadFile(filename)
 	if err != nil {
-		fmt.Fprint(os.Stderr, "Error occurred when trying to read data from file: ", err)
+		_, _ = fmt.Fprint(os.Stderr, "Error occurred when trying to read data from file: ", err)
 		os.Exit(1)
 	}
 
@@ -36,7 +36,7 @@ func readExpenseReport(filename string) []int {
 	for _, n := range numberStrings {
 		i, err := strconv.Atoi(n)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", n, err)
+			_, _ = fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", n, err)
 			continue
 		}
 		res = append(res, i)
