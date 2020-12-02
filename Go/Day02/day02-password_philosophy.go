@@ -54,12 +54,12 @@ func readPasswords(filename string) []CheckCase {
 		// "1", "7" / "l" // " zlmsmlxpvvlzv"
 		lBound, err := strconv.Atoi(bounds[0])
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", lBound, err)
+			_, _ = fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", bounds[0], err)
 			continue
 		}
 		rBound, err := strconv.Atoi(bounds[1])
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", rBound, err)
+			_, _ = fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", bounds[1], err)
 			continue
 		}
 		entry := CheckCase{
