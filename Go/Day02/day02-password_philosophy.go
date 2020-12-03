@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Day 02: Password Philosophy\n=====================")
+	fmt.Println("Day 02: Password Philosophy\n===========================")
 
 	checkCases := readPasswords("RawData.txt")
 	fmt.Printf("Read cases for checking: %q\n", checkCases)
