@@ -22,6 +22,7 @@ func main() {
 	solvePart2(passports)
 }
 
+// readPassports parses Passport objects from text file given via filename. It returns an array of Passport's.
 func readPassports(filename string) []Passport {
 	buf, err := ioutil.ReadFile(filename)
 	if err != nil {
@@ -88,6 +89,11 @@ func solvePart2(passports []Passport) {
 	fmt.Printf("Number of valid passports: %d\n", validCount)
 }
 
+// isBasicFormValid checks simple conditions for the validness of a Passport object pass.
+// It returns true if
+//  a) all required fields exists
+//  b) the basic format of those fields values is correct (e.g. check if it is a number,
+//     the range is not checked here)
 func isBasicFormValid(pass Passport) bool {
 	requiredFields := []string{"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"}
 	requiredForms := map[string]string{
@@ -117,6 +123,8 @@ func isBasicFormValid(pass Passport) bool {
 	return !fieldInvalidOrMissing
 }
 
+// areAllValueRangesValid checks Passport object pass for correct values ranges of different field.
+// It returns true if all of the fields "byr", "iyr", "eyr" and "hgt" have values in a given range.
 func areAllValueRangesValid(pass Passport) bool {
 	allValuesValid := true
 
