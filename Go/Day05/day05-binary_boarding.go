@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Day 01: Binary Boarding\n=======================")
+	fmt.Println("Day 05: Binary Boarding\n=======================")
 
 	boardingPasses := readBoardingPasses("RawData.txt")
 	fmt.Printf("Read boarding passes: %q\n", boardingPasses)
