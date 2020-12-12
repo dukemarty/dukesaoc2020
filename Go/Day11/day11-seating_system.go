@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math"
 	"os"
 	"strings"
 )
@@ -14,10 +15,14 @@ func main() {
 	fmt.Printf("Initial seat plan layout:\n%s\n", strings.Join(seatPlan, "\n"))
 
 	fmt.Println("\nPart 1: Count seats after stabilization\n----------------------------------------")
-	solvePart1(seatPlan)
+	iterationCount1, result1 := solve(seatPlan, func(plan [][]byte, r int, c int) int { return countRelevantOccupiedSeats(plan, r, c, 1) }, 4)
+	fmt.Printf("Stabilized after %d iterations\n", iterationCount1)
+	fmt.Printf("Number of occupied seats: %d\n", result1)
 
 	fmt.Println("\nPart 2: Count seats after stabilization with visibility\n-------------------------------------------------------")
-	solvePart2(seatPlan)
+	iterationCount2, result2 := solve(seatPlan, func(plan [][]byte, r int, c int) int { return countRelevantOccupiedSeats(plan, r, c, math.MaxInt32) }, 5)
+	fmt.Printf("Stabilized after %d iterations\n", iterationCount2)
+	fmt.Printf("Number of occupied seats: %d\n", result2)
 }
 
 func readSeatPlan(filename string) []string {
@@ -32,7 +37,8 @@ func readSeatPlan(filename string) []string {
 	return rows
 }
 
-func solvePart1(seatPlan []string) {
+// Returns number of iterations till stabilization and final count of occupied seats.
+func solve(seatPlan []string, countOccupation func([][]byte, int, int) int, emptyOccupiedSeatThreshold int) (int, int) {
 	plans := [2]SeatPlan{MakeSeatPlan(seatPlan), MakeSeatPlan(seatPlan)}
 	activePlan := 0
 
@@ -40,82 +46,40 @@ func solvePart1(seatPlan []string) {
 	iterationCount := 0
 	for changeCount != 0 {
 		iterationCount++
-		changeCount = generalIteration(&plans[activePlan], &plans[1-activePlan], countOccupiedNeighbors, 4) // stepIteration(&plans[activePlan], &plans[1-activePlan])
+		changeCount = generalIteration(&plans[activePlan], &plans[1-activePlan], countOccupation, emptyOccupiedSeatThreshold)
 		activePlan = 1 - activePlan
-		fmt.Printf("  ChangeCount: %d\n", changeCount)
-		fmt.Printf("Active:\n%v\n", plans[activePlan])
-		fmt.Printf("Inactive:\n%v\n", plans[1-activePlan])
 	}
 	result := plans[activePlan].CountOccupiedSeats()
 
-	fmt.Printf("Stabilized after %d iterations\n", iterationCount)
-	fmt.Printf("Number of occupied seats: %d\n", result)
+	return iterationCount, result
 }
 
-func countOccupiedNeighbors(plan [][]byte, row int, col int) int {
+func countRelevantOccupiedSeats(plan [][]byte, row int, col int, maxDist int) int {
 	res := 0
 
-	for _, i := range []int{-1, 0, 1} {
-		for _, j := range []int{-1, 0, 1} {
-			if i != 0 || j != 0 {
-				if plan[row+i][col+j] == '#' {
-					res++
-				}
-			}
-		}
-	}
-
-	return res
-}
-
-func countOccupiedVisibleSeats(plan [][]byte, row int, col int) int {
-	res := 0
-
-	for _, i := range []int{-1, 0, 1} {
-		for _, j := range []int{-1, 0, 1} {
-			if i == 0 && j == 0 {
+	for _, dx := range []int{-1, 0, 1} {
+		for _, dy := range []int{-1, 0, 1} {
+			if dx == 0 && dy == 0 {
 				continue
 			}
-			x := row
-			y := col
-			reached := false
-			for !reached {
-				x = x + i
-				y = y + j
+
+			x, y, reached := row, col, false
+			dist := 0
+			for !reached && dist < maxDist {
+				x, y = x+dx, y+dy
 				switch plan[x][y] {
-				case 'X':
-					reached = true
-				case 'L':
+				case 'X', 'L':
 					reached = true
 				case '#':
 					res++
 					reached = true
 				}
+				dist++
 			}
 		}
 	}
 
 	return res
-}
-
-func solvePart2(seatPlan []string) {
-	plans := [2]SeatPlan{MakeSeatPlan(seatPlan), MakeSeatPlan(seatPlan)}
-	activePlan := 0
-
-	changeCount := -1
-	iterationCount := 0
-	for changeCount != 0 {
-		iterationCount++
-		changeCount = generalIteration(&plans[activePlan], &plans[1-activePlan], countOccupiedVisibleSeats, 5) // stepIteration(&plans[activePlan], &plans[1-activePlan])
-		activePlan = 1 - activePlan
-		fmt.Printf("  ChangeCount: %d\n", changeCount)
-		fmt.Printf("Active:\n%v\n", plans[activePlan])
-		fmt.Printf("Inactive:\n%v\n", plans[1-activePlan])
-	}
-	result := plans[activePlan].CountOccupiedSeats()
-
-	fmt.Printf("Stabilized after %d iterations\n", iterationCount)
-	fmt.Printf("Number of occupied seats: %d\n", result)
 }
 
 func generalIteration(from *SeatPlan, to *SeatPlan, countOccupation func([][]byte, int, int) int, emptyOccupiedSeatThreshold int) int {
