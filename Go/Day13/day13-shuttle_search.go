@@ -24,6 +24,7 @@ func main() {
 }
 
 func readTimeTable(filename string) (int, []int) {
+	// 1st read the file content
 	buf, err := ioutil.ReadFile(filename)
 	if err != nil {
 		_, _ = fmt.Fprint(os.Stderr, "Error occurred when trying to read data from file: ", err)
@@ -32,12 +33,14 @@ func readTimeTable(filename string) (int, []int) {
 
 	lines := strings.Split(string(buf), "\r\n")
 
+	// 2nd parse single-value first line, earliest departure time
 	earliestDepartTime, err := strconv.Atoi(lines[0])
 	if err != nil {
 		_, _ = fmt.Fprintf(os.Stderr, "Error parsing '%s' as integer: %q", lines[0], err)
 		os.Exit(1)
 	}
 
+	// 3rd parse from comma-separated second line the bus id's
 	var busIds []int
 	for _, n := range strings.Split(lines[1], ",") {
 		if n == "x" {
@@ -79,34 +82,35 @@ func solvePart1(earliestDepartTime int, busIds []int) {
 
 // solve part 2 using Chinese Remainder Theorem, like https://de.wikipedia.org/wiki/Chinesischer_Restsatz#Finden_einer_L%C3%B6sung
 func solvePart2(busIds []int) {
-	M := int64(1)
-	for _, id := range busIds {
-		if id == -1 {
-			continue
-		}
-		M = M * int64(id)
-	}
-	fmt.Printf("M = %v\n", M)
-	x := big.NewInt(0)
+	M := big.NewInt(productOfAllPositives(busIds))
+
+	sumOfAllXatI := big.NewInt(0)
 	for i, id := range busIds {
 		if id == -1 {
 			continue
 		}
-		m_i, M_i := big.NewInt(int64(id)), big.NewInt(M/int64(id))
-		z, r, s, e_i := big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0)
-		z.GCD(r, s, m_i, M_i)
-		fmt.Printf("%v = %v*%v + %v*%v (z=r*m_i+s*M_i)\n", z, r, m_i, s, M_i)
-		e_i.Mul(s, M_i)
-		fmt.Printf("  e_%d = s*M_%d = %v*%v = %v\n", i, i, s, M_i, e_i)
-		x_i := big.NewInt(0)
-		a_i := big.NewInt(int64(id - i))
-		x_i.Mul(e_i, a_i)
-		fmt.Printf("  x_%d = %v\n", i, x_i)
-		x.Add(x, x_i)
+		mAtI := big.NewInt(int64(id))
+		MwithoutmAtI := new(big.Int).Div(M, mAtI)
+		z, rAtI, sAtI, eAtI := big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0)
+		z.GCD(rAtI, sAtI, mAtI, MwithoutmAtI)
+		eAtI.Mul(sAtI, MwithoutmAtI)
+		xAtI, aAtI := big.NewInt(0), big.NewInt(int64(-i))
+		xAtI.Mul(eAtI, aAtI)
+		sumOfAllXatI.Add(sumOfAllXatI, xAtI)
 	}
 
-	result, bigM := big.NewInt(0), big.NewInt(M)
-	result = result.Mod(x, bigM)
-
+	result := new(big.Int).Mod(sumOfAllXatI, M)
 	fmt.Printf("Earliest departure timestamp: %v\n", result)
+}
+
+func productOfAllPositives(numbers []int) int64 {
+	res := int64(1)
+	for _, n := range numbers {
+		if n < 1 {
+			continue
+		}
+		res = res * int64(n)
+	}
+
+	return res
 }
