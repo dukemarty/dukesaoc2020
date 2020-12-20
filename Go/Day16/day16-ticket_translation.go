@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Day 01: Docking Data\n=====================")
+	fmt.Println("Day 16: Docking Data\n=====================")
 
 	puzzleInput := readPuzzleInput("RawData.txt")
 	fmt.Printf("Program: %v\n", puzzleInput)
