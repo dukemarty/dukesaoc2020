@@ -5,11 +5,11 @@ import (
 	"strings"
 )
 
-type EnergySource struct {
+type EnergySource3D struct {
 	Planes []ConwayCubePlane
 }
 
-func (es EnergySource) String() string {
+func (es EnergySource3D) String() string {
 	blocks := make([]string, 0, len(es.Planes))
 	for _, p := range es.Planes {
 		blocks = append(blocks, p.String())
@@ -18,7 +18,7 @@ func (es EnergySource) String() string {
 	return strings.Join(blocks, "\n\n")
 }
 
-func (es EnergySource) CountActiveCubes() int {
+func (es EnergySource3D) CountActiveCubes() int {
 	res := 0
 
 	for _, plane := range es.Planes {
@@ -28,8 +28,8 @@ func (es EnergySource) CountActiveCubes() int {
 	return res
 }
 
-func (es *EnergySource) ExecuteCycle() {
-	fmt.Printf("Length of es.Planes: %d\n", len(es.Planes))
+func (es *EnergySource3D) ExecuteCycle() {
+	//fmt.Printf("Length of es.Planes: %d\n", len(es.Planes))
 	nextPlanes := make([]ConwayCubePlane, 0, len(es.Planes))
 	nextPlanes = append(nextPlanes, es.Planes[0])
 	for i := 1; i < len(es.Planes)-1; i++ {
@@ -40,8 +40,8 @@ func (es *EnergySource) ExecuteCycle() {
 	es.Planes = nextPlanes
 }
 
-func (es *EnergySource) ComputeNextCycleState(planeIndex int) ConwayCubePlane {
-	fmt.Printf("  ComputeNextCycleState(%d)\n", planeIndex)
+func (es *EnergySource3D) ComputeNextCycleState(planeIndex int) ConwayCubePlane {
+	//fmt.Printf("  ComputeNextCycleState(%d)\n", planeIndex)
 	ccp := es.Planes[planeIndex]
 	resPlane := MakeEmptyConwayCubePlane(ccp.Height, ccp.Width)
 	for r := 1; r < ccp.Height+1; r++ {
@@ -50,16 +50,16 @@ func (es *EnergySource) ComputeNextCycleState(planeIndex int) ConwayCubePlane {
 			case ACTIVE:
 				count := es.CountActiveNeighbours(planeIndex, r, c)
 				if count == 2 || count == 3 {
-					fmt.Printf("Change cube (1) %d/%d/%d\n", planeIndex, r, c)
+					//fmt.Printf("Change cube (1) %d/%d/%d\n", planeIndex, r, c)
 					resPlane.Cubes[r][c] = ACTIVE
 				} else {
-					fmt.Printf("Change cube (2) %d/%d/%d\n", planeIndex, r, c)
+					//fmt.Printf("Change cube (2) %d/%d/%d\n", planeIndex, r, c)
 					resPlane.Cubes[r][c] = INACTIVE
 				}
 			case INACTIVE:
 				count := es.CountActiveNeighbours(planeIndex, r, c)
 				if count == 3 {
-					fmt.Printf("Change cube (3) %d/%d/%d\n", planeIndex, r, c)
+					//fmt.Printf("Change cube (3) %d/%d/%d\n", planeIndex, r, c)
 					resPlane.Cubes[r][c] = ACTIVE
 				} else {
 					//fmt.Printf("Change cube (4) %d/%d/%d\n", planeIndex, r, c)
@@ -74,7 +74,7 @@ func (es *EnergySource) ComputeNextCycleState(planeIndex int) ConwayCubePlane {
 	return resPlane
 }
 
-func (es EnergySource) CountActiveNeighbours(planeIndex int, rowIndex int, columnIndex int) int {
+func (es EnergySource3D) CountActiveNeighbours(planeIndex int, rowIndex int, columnIndex int) int {
 	res := 0
 
 	for _, dp := range [...]int{-1, 0, 1} {
@@ -93,8 +93,8 @@ func (es EnergySource) CountActiveNeighbours(planeIndex int, rowIndex int, colum
 	return res
 }
 
-func MakeEnergySource(initialState []string, intendedRoundCount int) EnergySource {
-	resESource := EnergySource{
+func MakeEnergySource3D(initialState []string, intendedRoundCount int) EnergySource3D {
+	resESource := EnergySource3D{
 		Planes: make([]ConwayCubePlane, 0, 2*intendedRoundCount+3),
 	}
 	fmt.Printf("  Length of resESource.Planes: %d\n", len(resESource.Planes))
