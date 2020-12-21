@@ -18,8 +18,8 @@ func main() {
 	fmt.Println("\nPart 1: Count completely matched messages\n----------------------------------")
 	solvePart1(puzzleInput)
 
-	//fmt.Println("\nPart 2: Multiply all departure values on my ticket\n-------------------------------------------------------")
-	//solvePart2(puzzleInput)
+	fmt.Println("\nPart 2: Count completely matched messages with updated rules\n-------------------------------------------------------")
+	solvePart2(puzzleInput)
 }
 
 func readPuzzleInput(filename string) PuzzleInput {
@@ -67,12 +67,39 @@ func solvePart1(puzzleInput PuzzleInput) {
 	fmt.Printf("Result for part 1: %d\n", validMessageCount)
 }
 
+func solvePart2(puzzleInput PuzzleInput) {
+	regexFormat := reduceRulesetToRegex(puzzleInput.RuleSet)
+	fmt.Println(regexFormat)
+	puzzleInput.RuleSet[8] = Rule{
+		Id:     8,
+		Syntax: "42 +",
+	}
+	regexFormat = reduceRulesetToRegex(puzzleInput.RuleSet)
+	fmt.Println(regexFormat)
+	puzzleInput.RuleSet[11] = Rule{
+		Id:     11,
+		Syntax: "42 31 | 42 42 31 31 | 42 42 42 31 31 31 | 42 42 42 42 31 31 31 31 | 42 42 42 42 42 31 31 31 31 31",
+	}
+	regexFormat = reduceRulesetToRegex(puzzleInput.RuleSet)
+	fmt.Println(regexFormat)
+
+	validMessageCount := 0
+	for _, m := range puzzleInput.Messages {
+		matched, _ := regexp.MatchString(regexFormat, m)
+		if matched {
+			validMessageCount++
+		}
+	}
+
+	fmt.Printf("Result for part 2: %d\n", validMessageCount)
+}
+
 func reduceRulesetToRegex(rules map[int]Rule) string {
 	res := `^ 0 $`
 
 	changed := true
 	for changed {
-		fmt.Println(res)
+		//fmt.Println(res)
 		changed = false
 		fields := strings.Fields(res)
 		var sb strings.Builder
@@ -91,56 +118,3 @@ func reduceRulesetToRegex(rules map[int]Rule) string {
 
 	return res
 }
-
-//func solvePart2(puzzleInput PuzzleInput) {
-//	validTickets := DetermineValidTickets(puzzleInput)
-//	//fmt.Printf("  Valid tickets: %v\n", validTickets)
-//	possibleFieldPositions := ComputePossibleFieldPositions(puzzleInput, validTickets)
-//	fmt.Printf("  Possible positions: %v\n", possibleFieldPositions)
-//
-//	prevLen := -1
-//	for len(possibleFieldPositions) > 0 {
-//		if prevLen == len(possibleFieldPositions) {
-//			fmt.Println("Could not go further?!?!")
-//			break
-//		}
-//		prevLen = len(possibleFieldPositions)
-//		fieldsDone := make([]string, 0)
-//		for name, positions := range possibleFieldPositions {
-//			if len(positions) == 1 {
-//				SetTicketFieldPosition(&puzzleInput, name, positions[0])
-//				//fmt.Printf("  Determined %s is at position %d\n", name, positions[0])
-//				for oName, oPositions := range possibleFieldPositions {
-//					if oName == name {
-//						continue
-//					}
-//					delPos := -1
-//					for i, n := range oPositions {
-//						if n == positions[0] {
-//							delPos = i
-//						}
-//					}
-//					if delPos > -1 {
-//						oPositions[delPos] = oPositions[len(oPositions)-1]
-//						possibleFieldPositions[oName] = possibleFieldPositions[oName][:len(possibleFieldPositions[oName])-1]
-//					}
-//				}
-//				fieldsDone = append(fieldsDone, name)
-//			}
-//		}
-//		for _, name := range fieldsDone {
-//			delete(possibleFieldPositions, name)
-//		}
-//		//fmt.Printf("  Ticked fields: %v\n", puzzleInput.TicketFields)
-//		fmt.Printf("  Possible positions: %v\n", possibleFieldPositions)
-//	}
-//	fmt.Printf("Ticked fields: %v\n", puzzleInput.TicketFields)
-//
-//	res := 1
-//	for _, field := range puzzleInput.TicketFields {
-//		if strings.HasPrefix(field.Name, "departure") {
-//			res = res * puzzleInput.MyTicket.Values[field.Position]
-//		}
-//	}
-//	fmt.Printf("Result for part 2: %d\n", res)
-//}
