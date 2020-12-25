@@ -9,7 +9,7 @@ var day15Data = [...]int{2, 1, 10, 11, 0, 6}
 //var day15Data = [...]int{0, 3, 6}
 
 func main() {
-	fmt.Println("Day 01: Report Repair\n=====================")
+	fmt.Println("Day 15: Report Repair\n=====================")
 
 	gameData := prepareGameData(day15Data[:])
 	fmt.Printf("Initial game data: %v\n", gameData)
