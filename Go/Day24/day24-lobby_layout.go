@@ -16,8 +16,8 @@ func main() {
 	fmt.Println("\nPart 1: Count of black tiles\n-----------------------------------------")
 	solvePart1(tileList)
 
-	//fmt.Println("\nPart 2: Manhattan distance to target via way point\n-------------------------------------------------------")
-	//solvePart2(navigationInstructions)
+	fmt.Println("\nPart 2: Count of black tiles after 100 days\n-------------------------------------------------------")
+	solvePart2(tileList)
 }
 
 func readTileList(filename string) []Tile {
@@ -53,20 +53,62 @@ func solvePart1(tiles []Tile) {
 	fmt.Printf("Count of black tiles: %d\n", res)
 }
 
-//func solvePart2(navInstructions []NavInstruction) {
-//	x, y := 0, 0
-//	wayPoint := WayPoint{X: 10, Y: 1}
-//
-//	for _, inst := range navInstructions {
-//		switch inst.Command {
-//		case 'N', 'E', 'S', 'W', 'R', 'L':
-//			wayPoint.Move(inst)
-//		case 'F':
-//			x = x + wayPoint.X*inst.Value
-//			y = y + wayPoint.Y*inst.Value
-//		}
-//	}
-//
-//	fmt.Printf("Final position: %d/%d (waypoint at %v)\n", x, y, wayPoint)
-//	fmt.Printf("Distance to pos: %d\n", absInt(x)+absInt(y))
-//}
+func solvePart2(tiles []Tile) {
+	tileMap := make(map[Position]TileColor)
+
+	for _, t := range tiles {
+		tileMap[t.Pos] = 1 - tileMap[t.Pos]
+		if tileMap[t.Pos] == WHITE {
+			delete(tileMap, t.Pos)
+		}
+	}
+
+	for i := 0; i < 100; i++ {
+		tileMap = performDayFlip(tileMap)
+		fmt.Printf("Number of black tiles on day %d: %d\n", i+1, len(tileMap))
+	}
+
+	res := 0
+	for _, color := range tileMap {
+		res = res + int(color)
+	}
+
+	fmt.Printf("Count of black tiles: %d\n", res)
+}
+
+func performDayFlip(tileMap map[Position]TileColor) map[Position]TileColor {
+	resMap := make(map[Position]TileColor)
+
+	for pos, color := range tileMap {
+		if color == WHITE {
+			continue
+		}
+		blacksBlackNeighborCount := 0
+		for _, adjPos := range pos.GetAdjacentPositions() {
+			if tileMap[adjPos] == BLACK {
+				blacksBlackNeighborCount++
+			} else {
+				whitesBlackNeighborCount := 0
+				for _, wAdjPos := range adjPos.GetAdjacentPositions() {
+					if tileMap[wAdjPos] == BLACK {
+						whitesBlackNeighborCount++
+					}
+				}
+				if whitesBlackNeighborCount == 2 {
+					resMap[adjPos] = BLACK
+				}
+			}
+		}
+		if blacksBlackNeighborCount == 1 || blacksBlackNeighborCount == 2 {
+			resMap[pos] = BLACK
+		}
+	}
+
+	for pos, color := range resMap {
+		if color == WHITE {
+			delete(tileMap, pos)
+		}
+	}
+
+	return resMap
+}

@@ -12,6 +12,15 @@ type Position struct {
 	Y int
 }
 
+func (p Position) GetAdjacentPositions() [6]Position {
+	res := [...]Position{
+		{p.X - 1, p.Y}, {p.X + 1, p.Y},
+		{p.X, p.Y - 1}, {p.X, p.Y + 1}, {p.X - 1, p.Y + 1}, {p.X + 1, p.Y - 1},
+	}
+
+	return res
+}
+
 type Tile struct {
 	NavInstructions string
 	Pos             Position
