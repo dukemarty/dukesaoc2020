@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4d22d305-eb59-4f1e-8a47-4a823ef2755b" name="Default Changelist" comment="Implemented day 12 in Go.">
+      <change afterPath="$PROJECT_DIR$/Day20/day20-Connection.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Day20/day20-Tile.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Day20/day20-TileConnection.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Day20/day20-datatypes.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Day20/day20-helpers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FSharp/AoC2020/AoC2020.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../FSharp/AoC2020/AoC2020.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FSharp/AoC2020/Day01/Program.fs" beforeDir="false" afterPath="$PROJECT_DIR$/../FSharp/AoC2020/Day01/Program.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Day20/day20-jurassic_jigsaw.go" beforeDir="false" afterPath="$PROJECT_DIR$/Day20/day20-jurassic_jigsaw.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Day23/day23-crab_cups.go" beforeDir="false" afterPath="$PROJECT_DIR$/Day23/day23-crab_cups.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TypeScript/Day01/day01-rawdata.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TypeScript/Day01/day01-report_repair.ts" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="$PROJECT_DIR$/../../../../Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1l2zZ3xqbPfaNaxMtjxRSGUmWmB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Day06" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RunManager" selected="Go Build.go build day20-jurassic_jigsaw.go">
+    <configuration name="go build day20-jurassic_jigsaw.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Go" />
+      <working_directory value="$PROJECT_DIR$/Day20/" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/Day20/day20-jurassic_jigsaw.go" />
+      <directory value="$PROJECT_DIR$/Day20/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build day22-crab_combat.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Go" />
+      <working_directory value="$PROJECT_DIR$/Day22" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/Day22/day22-crab_combat.go" />
+      <directory value="$PROJECT_DIR$/Day22" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build day23-crab_cups.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Go" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/Day23/day23-crab_cups.go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build day24-lobby_layout.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Go" />
+      <working_directory value="$PROJECT_DIR$/Day24/" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/Day24/day24-lobby_layout.go" />
+      <directory value="$PROJECT_DIR$/Day24/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build day25-combo_breaker.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Go" />
+      <working_directory value="$PROJECT_DIR$/Day25/" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/Day25/day25-combo_breaker.go" />
+      <directory value="$PROJECT_DIR$/Day25/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build day20-jurassic_jigsaw.go" />
+        <item itemvalue="Go Build.go build day23-crab_cups.go" />
+        <item itemvalue="Go Build.go build day24-lobby_layout.go" />
+        <item itemvalue="Go Build.go build day25-combo_breaker.go" />
+        <item itemvalue="Go Build.go build day22-crab_combat.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d22d305-eb59-4f1e-8a47-4a823ef2755b" name="Default Changelist" comment="" />
+      <created>1606810026105</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606810026105</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Implemented day 2 in Go in a version which is able to solve the exercise.">
+      <created>1606922952888</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606922952888</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Cleaned up code (minor warnings in day 1, removed debugging output from day 2).">
+      <created>1606923263016</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606923263016</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Cleaned up code in day 2 (handle or explicitly ignore return values etc.).">
+      <created>1606923408307</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606923408307</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Implemented day 3 in Go.">
+      <created>1607028507432</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607028507432</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Split day 3 Go code into two files.">
+      <created>1607029099318</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607029099318</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Implemented day 4 in Go.">
+      <created>1607093958696</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607093958696</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added some documentation comments for day 4.">
+      <created>1607095628815</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607095628815</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Implemented day 5 in Go.">
+      <created>1607177173698</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1607177173698</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Implemented day 6 in Go.">
+      <created>1607266194723</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607266194723</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Implemented day 7 in Go.">
+      <created>1607374540001</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1607374540001</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Implemented day 8 in Go.">
+      <created>1607458488521</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607458488521</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Implemented day 9 in Go.">
+      <created>1607512094874</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607512094874</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Implemented day 10 in Go.">
+      <created>1607725900546</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1607725900546</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Implemented day 11 in Go.">
+      <created>1607725932914</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1607725932914</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Refactored duplicate code in day 11 in Go.">
+      <created>1607762023960</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1607762023960</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Implemented day 12 in Go.">
+      <created>1607806408123</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1607806408123</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Implemented day 13 in Go.">
+      <created>1607865799655</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1607865799655</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Refactored day 13 Go solution.">
+      <created>1607869937198</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1607869937198</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Solved day 14 in Go.">
+      <created>1608075255479</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1608075255479</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Solved day 15 in Go.">
+      <created>1608109002331</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1608109002331</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Implemented day 16 in Go.">
+      <created>1608239084486</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1608239084486</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Implemented day 18 in Go.">
+      <created>1608390744742</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1608390744742</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Implemented part 1 of day 17 in Go.">
+      <created>1608473077841</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1608473077841</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Implemented part 1 of day 19 in Go.">
+      <created>1608473105222</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1608473105222</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Minor corrections for day 16 and day 18 in Go.">
+      <created>1608473143418</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1608473143418</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Implemented part 2 of day 19 in Go.">
+      <created>1608509169971</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1608509169971</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Implemented part 2 of day 17 in Go.">
+      <created>1608509754551</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1608509754551</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Implemented day 21 in Go.">
+      <created>1608588327268</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1608588327268</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Implemented day 22 in Go.">
+      <created>1608677347572</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1608677347572</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Implemented part 1 of day 23 in Go.">
+      <created>1608854456573</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1608854456573</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Implemented part 1 of day 24.">
+      <created>1608854494237</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1608854494237</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Fixed typo in day 15 in Go.">
+      <created>1608854515290</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1608854515290</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Implemented day 25 part 1 in Go.">
+      <created>1608934907940</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1608934907941</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Implemented part 2 of day 24 in Go.">
+      <created>1608938002612</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1608938002612</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Implemented part 1 of day 20 in Go.">
+      <created>1609024752976</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1609024752976</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implemented day 8 in Go." />
+    <MESSAGE value="Implemented day 9 in Go." />
+    <MESSAGE value="Implemented day 10 in Go." />
+    <MESSAGE value="Implemented day 11 in Go." />
+    <MESSAGE value="Refactored duplicate code in day 11 in Go." />
+    <MESSAGE value="Implemented day 12 in Go." />
+    <MESSAGE value="Implemented day 13 in Go." />
+    <MESSAGE value="Refactored day 13 Go solution." />
+    <MESSAGE value="Solved day 14 in Go." />
+    <MESSAGE value="Solved day 15 in Go." />
+    <MESSAGE value="Implemented day 16 in Go." />
+    <MESSAGE value="Implemented day 18 in Go." />
+    <MESSAGE value="Implemented part 1 of day 17 in Go." />
+    <MESSAGE value="Implemented part 1 of day 19 in Go." />
+    <MESSAGE value="Minor corrections for day 16 and day 18 in Go." />
+    <MESSAGE value="Implemented part 2 of day 19 in Go." />
+    <MESSAGE value="Implemented part 2 of day 17 in Go." />
+    <MESSAGE value="Implemented day 21 in Go." />
+    <MESSAGE value="Implemented day 22 in Go." />
+    <MESSAGE value="Implemented part 1 of day 23 in Go." />
+    <MESSAGE value="Implemented part 1 of day 24." />
+    <MESSAGE value="Fixed typo in day 15 in Go." />
+    <MESSAGE value="Implemented day 25 part 1 in Go." />
+    <MESSAGE value="Implemented part 2 of day 24 in Go." />
+    <MESSAGE value="Implemented part 1 of day 20 in Go." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented part 1 of day 20 in Go." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="718" y="410" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1606923375726">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="718" y="410" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080@0.0.1920.1080" timestamp="1606923375726" />
+    <state x="739" y="294" key="FileChooserDialogImpl" timestamp="1607264893916">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="739" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1607264893916" />
+    <state width="1860" height="180" key="GridCell.Tab.0.bottom" timestamp="1609370690001">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1860" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609370690001" />
+    <state width="1860" height="180" key="GridCell.Tab.0.center" timestamp="1609370690001">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1860" height="180" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609370690001" />
+    <state width="1860" height="180" key="GridCell.Tab.0.left" timestamp="1609370690001">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1860" height="180" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609370690001" />
+    <state width="1860" height="180" key="GridCell.Tab.0.right" timestamp="1609370690001">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1860" height="180" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609370690001" />
+    <state width="1860" height="360" key="GridCell.Tab.1.bottom" timestamp="1609023669721">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1860" height="360" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609023669721" />
+    <state width="1860" height="360" key="GridCell.Tab.1.center" timestamp="1609023669721">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1860" height="360" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609023669721" />
+    <state width="1860" height="360" key="GridCell.Tab.1.left" timestamp="1609023669721">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1860" height="360" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609023669721" />
+    <state width="1860" height="360" key="GridCell.Tab.1.right" timestamp="1609023669721">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1860" height="360" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609023669721" />
+    <state x="740" y="242" key="RollbackChangesDialog" timestamp="1608390717103">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="740" y="242" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1608390717103" />
+    <state x="777" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608496846494">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="777" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1608496846494" />
+    <state x="667" y="139" width="585" height="801" key="find.popup" timestamp="1608337514256">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="667" y="139" width="585" height="801" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1608337514256" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1608394311941">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1608394311941" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Day20/day20-jurassic_jigsaw.go</url>
+          <line>90</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Day20/day20-jurassic_jigsaw.go</url>
+          <line>78</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

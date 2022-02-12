@@ -17,5 +17,5 @@ bin/
 obj/
 
 ## TypeScript
-TypeScript/*/*.js
-TypeScript/*/node_modules/
+TypeScript/*.js
+TypeScript/node_modules/

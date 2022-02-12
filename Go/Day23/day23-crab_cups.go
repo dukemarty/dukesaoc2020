@@ -191,9 +191,9 @@ func solvePart1(gameData GameData) {
 func solvePart2(gameData GameData) {
 	for j := 0; j < 10000; j++ {
 		for i := 0; i < 1000; i++ {
-			gameData.MakeMove2()
+			gameData.MakeMove()
 		}
-		println(j)
+		fmt.Printf("%d: %d\n",j, gameData.Numbers.Value)
 	}
 
 	for gameData.Numbers.Value.(int) != 1 {
