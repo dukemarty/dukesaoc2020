@@ -10,14 +10,14 @@ import (
 func main() {
 	fmt.Println("Day 20: Jurassic Jigsaw\n========================")
 
-	tiles := readTiles("RawData.txt")
+	tiles := readTiles("RawDataTest.txt")
 	fmt.Printf("Tiles: %q\n", tiles)
 
 	fmt.Println("\nPart 1: Product of corner-tile ids\n----------------------------------")
 	solvePart1(tiles)
 
-	//fmt.Println("\nPart 2: Allergen-alphabetic ingredients list\n-------------------------------------")
-	//solvePart2(foodList)
+	fmt.Println("\nPart 2: Count non-monster '#'\n-------------------------------------")
+	solvePart2(tiles)
 }
 
 func readTiles(filename string) []Tile {
@@ -99,23 +99,21 @@ func findPossibleConnections(tiles []Tile) []Tile {
 	return tiles
 }
 
-//func solvePart2(foodList []Food) {
-//	_, allergens := constructContentLists(foodList)
-//	determineAllergenContainers(allergens)
-//
-//	fmt.Printf("Allergens: %v\n", allergens)
-//
-//	allAllergens := make([]string, 0, len(allergens))
-//	for n := range allergens {
-//		allAllergens = append(allAllergens, n)
-//	}
-//	sort.Strings(allAllergens)
-//
-//	orderedIngredients := make([]string, 0, len(allAllergens))
-//	for _, a := range allAllergens {
-//		orderedIngredients = append(orderedIngredients, allergens[a].Container)
-//	}
-//
-//	fmt.Printf("Ordered container elements: %s\n", strings.Join(orderedIngredients, ","))
-//}
-//
+func solvePart2(tiles []Tile) {
+	tm := MakeTileMap(tiles)
+
+	connectedTiles := findPossibleConnections(tiles)
+	fmt.Printf("Connected tiles: %v\n", connectedTiles)
+
+	cornerCandidates := make([]Tile, 0)
+	for _, t := range connectedTiles {
+		if len(t.Connections) == 2 {
+			cornerCandidates = append(cornerCandidates, t)
+		}
+	}
+	fmt.Printf("Corner candidates: %v\n", cornerCandidates)
+
+	tm = tm.DeterminePositions(connectedTiles, cornerCandidates)
+
+	fmt.Printf("TileMap: %v\n", tm)
+}
